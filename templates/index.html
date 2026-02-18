@@ -1,12 +1,16 @@
+{% extends "base.html" %}
+
+{% block title%}Home{% endblock %}
+
 <html>
  <head>
   <title>Очень крутая страница</title>
  </head>
  <body>
-  <h1>Крутой заголовок</h1>
+  {% block content %}
+  <h1>Hello, {{name}}!</h1>
   <p>
    Очень крутой абзац.</p>
- </body>
  <img src="../static/images.jpg"/>
  <ul>
     <li>Значение номер один</li>
@@ -28,4 +32,6 @@
 </form>
     
 </form>
+{% endblock %}
+</body>
 </html>
