@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Все записи{% endblock %}
+
+{% block content %}
+  <h3>Список записей</h3>
+
+  {% if records|length == 0 %}
+    <p>Пока нет записей.</p>
+  {% else %}
+    <ul>
+      {% for c in records %}
+        <li>
+         <b>{{ c.full_name }}</b> — {{ c.date }} (id={{ c.id }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <hr>
+  
+  <form method="POST">
+    <button type="submit" style="padding: 10px 20px; background-color: #ff6b6b; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Удалить последнюю запись
+    </button>
+  </form>
+{% endblock %}
