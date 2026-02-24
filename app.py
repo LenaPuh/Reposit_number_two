@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from models import Consultant, Appointment, db
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+
 app = Flask(__name__)
 
 # указываем, где будет база данных
