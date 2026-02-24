@@ -1,5 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
+from models import Consultant, Appointment, db
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 app = Flask(__name__)
+
+# указываем, где будет база данных
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database_test.db'
+#связываем приложение и экземпляр SQLAlchemy
+db.init_app(app)
+# создаем все, что есть в db.Models
+with app.app_context():
+    db.create_all()
 
 RECORDS = [
     {"id": 1, "full_name": "Анна Иванова", "date": "25.02.2026 10:00"},
